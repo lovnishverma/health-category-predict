@@ -25,7 +25,7 @@
         text-align: center;
         font-style: oblique;
         font-weight: bold;
-        box-shadow: 10px 10px 5px #808080;
+        /*box-shadow: 10px 10px 5px #808080; */
         animation: bounce 2s infinite;
       }
       @keyframes bounce {
@@ -58,15 +58,32 @@
         max-width: 500px;
         margin: 0 auto;
         padding: 30px;
-        background-color: rgba(0, 0, 0, 0.4); /* Darker background color */
+        background-color: rgba(0, 0, 0, 0.3); /* Darker background color */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         animation: fadeIn 0.5s ease-in-out;
       }
+      
+      .glow {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
     </style>
   </head>
   <body>
-    <div><h1>Health Category Prediction</h1></div>
+    <div><h1 class="glow">Health Category Prediction</h1></div>
     <div class="container">
       <form action="/bmi" method="POST">
         <table class="table table-striped trans" align="center">
@@ -162,7 +179,7 @@
       </form>
     </div>
  </table>
-    <div>Your Health Category is:</div>
+    <div><h1>Your Health Category is:</h1></div>
     <div align="center"><h1>{{data}}</h1></div>
   </body>
 </html>
