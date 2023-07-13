@@ -12,10 +12,10 @@ def iris():
 
 @app.route('/irisf', methods=["POST"])
 def page():
-  swidth=eval(request.form.get("gen"))
-  sheight=eval(request.form.get("weight"))
-  pwidth=eval(request.form.get("height"))
-  pheight=eval(request.form.get("bmi"))
+  gen=eval(request.form.get("gen"))
+  weight=eval(request.form.get("weight"))
+  height=eval(request.form.get("height"))
+  bmi=eval(request.form.get("bmi"))
   
   url="BMI_Data.csv"
   

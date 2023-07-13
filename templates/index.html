@@ -45,9 +45,12 @@ transform: translateY(0);
     <div class="row">
     <tr align="center">
        <div class="col-sm-6">
-         <td><label for="swidth" class="form-label">Sepal Width</label></td></div>
+         <td><label for="swidth" class="form-label">Gender</label></td></div>
         <div class="col-sm-6">
-          <td><input type="text" name="gen" placeholder="Enter width of Sepal" required></td></div>
+          <td><select type="text" name="gen"  required><option value= "0">Male</option>
+            <option value= "1">Female</option>
+            </select>
+          </td></div>
     </tr>
     <tr align="center">
         <div class="col-sm-6">
@@ -59,13 +62,13 @@ transform: translateY(0);
         <div class="col-sm-6">
           <td><label for="pwidth" class="form-label">Petal Width</label></td></div>
         <div class="col-sm-6">
-          <td><input type="text" name="hieght" placeholder="Enter width of Petal" required></td></div>
+          <td><input type="text" name="height" placeholder="Enter width of Petal" required></td></div>
     </tr>
     <tr align="center">
         <div class="col-sm-6">
           <td><label for="pheight" class="form-label">Petal Height</label></td></div>
         <div class="col-sm-6">
-          <td><input type="text" name="bmi" placeholder="Enter height of Petal" required></td></div>
+          <td><input type="number" name="bmi" placeholder="Enter height of Petal" required></td></div>
     </tr>
     
     <tr>
@@ -102,14 +105,18 @@ transform: translateY(0);
         <h1>
           Normal
        </h1>
-     {% elif data=="Iris-virginica" %}
+     {% elif data=="Overweight" %}
        <h1>
-         
+         Overweight
        </h1>
         </h1>
-     {% elif data=="Iris-virginica" %}
+     {% elif data=="Extreme Obesity" %}
        <h1>
-         
+         Extreme Obesity
+       </h1>
+  {% elif data=="Weak" %}
+       <h1>
+         Weak
        </h1>
      {% endif %}
      </center>
