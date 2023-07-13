@@ -86,14 +86,12 @@
           </tr>
           <tr align="center">
             <div class="col-sm-6">
-              <td><label style="color: white" for="ENTER WEIGHT" class="form-label">WEIGHT</label></td>
+              <td><label style="color: white" for="WEIGHT" class="form-label">WEIGHT</label></td>
             </div>
             <div class="col-sm-6">
               <td>
                 <input class="form-control"
-                  type="number"
-                  min="1"
-                  max="200"
+                  type="text"
                   name="weight"
                   placeholder="Enter WEIGHT"
                   required
@@ -103,7 +101,7 @@
           </tr>
           <tr align="center">
             <div class="col-sm-6">
-              <td><label style="color: white" for="ENTER HEIGHT" class="form-label">HEIGHT</label></td>
+              <td><label style="color: white" for="HEIGHT" class="form-label">HEIGHT</label></td>
             </div>
             <div class="col-sm-6">
               <td>
@@ -122,17 +120,18 @@
             </div>
             <div class="col-sm-6">
               <td>
-                <input class="form-control" type="text" name="Enter BMI" placeholder="BMI" required />
+                <input class="form-control" type="text" name="bmi" placeholder="BMI" required />
               </td>
             </div>
           </tr>
 </div>
           <tr>
             <td colspan="2" align="center">
-              <input class="btn btn-success" type="submit" value="Predict Health" />
-              <input class="btn btn-info" type="reset" value="Clear" />
+              <input type="submit" value="Predict Health" />
+              <input type="reset" value="Clear" />
             </td>
           </tr>
+        </div>
       </table>
     </form>
 
