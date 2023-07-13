@@ -12,24 +12,24 @@ def iris():
 
 @app.route('/irisf', methods=["POST"])
 def page():
-  swidth=eval(request.form.get("swidth"))
-  sheight=eval(request.form.get("sheight"))
-  pwidth=eval(request.form.get("pwidth"))
-  pheight=eval(request.form.get("pheight"))
+  swidth=eval(request.form.get("gen"))
+  sheight=eval(request.form.get("weight"))
+  pwidth=eval(request.form.get("height"))
+  pheight=eval(request.form.get("bmi"))
   
-  url="https://raw.githubusercontent.com/lovnishverma/datasets/main/iris.csv"
+  url="BMI_Data.csv"
   
   data=pd.read_csv(url, header=None)
-  flower=data.values
+  health=data.values
   
   #Split
-  x=flower[:,:4]
-  y=flower[:,-1]
+  x=health[:,:4]
+  y=health[:,-1]
   
   model=LogisticRegression()
   model.fit(x,y)
   
-  arr=model.predict([[swidth,sheight,pwidth,pheight]])
+  arr=model.predict([[gen,weight,height,bmi]])
 
   return render_template("index.html", data=str(arr[0]))
 
