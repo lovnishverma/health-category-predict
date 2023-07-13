@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
-  <title>Health Category Prediction</title>
   <head>
+    <title>Health Category Prediction</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -9,23 +10,20 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <style>
       body {
         background-image: url("https://cdn.glitch.global/e8f7ca91-dfdb-4e3c-9450-e2b3926c82f2/gif.gif?v=1689247430313");
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-size: 100% 100%;
+        background-size: cover;
+        padding: 20px;
       }
-
-      div {
+      
+      h1 {
         color: #cd5c5c;
         text-align: center;
         font-style: oblique;
         font-weight: bold;
-        /*box-shadow: 10px 10px 5px #808080; */
         animation: bounce 2s infinite;
       }
       @keyframes bounce {
@@ -45,25 +43,41 @@
           transform: translateY(0);
         }
       }
-      h2 {
-        color: #cd5c5c;
-        text-align: center;
-      }
+
       .container {
-        position: absolute; /* Use absolute positioning */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Center the container */
-        z-index: 1; /* Ensure the container is positioned above the video */
         max-width: 500px;
         margin: 0 auto;
         padding: 30px;
-        background-color: rgba(0, 0, 0, 0.3); /* Darker background color */
+        background-color: rgba(0, 0, 0, 0.7);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         animation: fadeIn 0.5s ease-in-out;
       }
-      
+
+      label {
+        color: white;
+      }
+
+      input[type="number"],
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #f2f2f2;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .result {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+      }
       .glow {
   font-size: 50px;
   color: #fff;
@@ -83,103 +97,59 @@
     </style>
   </head>
   <body>
-    <div><h1 class="glow">Health Category Prediction</h1></div>
+    <h1 class="glow">Health Category Prediction</h1>
     <div class="container">
       <form action="/bmi" method="POST">
-        <table class="table table-striped trans" align="center">
-          <div class="row">
-            <tr align="center">
-              <div class="col-sm-6">
-                <td>
-                  <label style="color: white" for="GENDER" class="form-label"
-                    >Gender</label
-                  >
-                </td>
-              </div>
-              <div class="col-sm-6">
-                <td>
-                  <select class="form-control" type="text" name="gen" required>
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                  </select>
-                </td>
-              </div>
-            </tr>
-            <tr align="center">
-              <div class="col-sm-6">
-                <td>
-                  <label style="color: white" for="WEIGHT" class="form-label"
-                    >WEIGHT</label
-                  >
-                </td>
-              </div>
-              <div class="col-sm-6">
-                <td>
-                  <input
-                    class="form-control"
-                    type="number"
-                    name="weight"
-                    placeholder="Enter WEIGHT"
-                    required
-                  />
-                </td>
-              </div>
-            </tr>
-            <tr align="center">
-              <div class="col-sm-6">
-                <td>
-                  <label style="color: white" for="HEIGHT" class="form-label"
-                    >HEIGHT</label
-                  >
-                </td>
-              </div>
-              <div class="col-sm-6">
-                <td>
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="height"
-                    placeholder="Enter HEIGHT"
-                    required
-                  />
-                </td>
-              </div>
-            </tr>
-            <tr align="center">
-              <div class="col-sm-6">
-                <td>
-                  <label style="color: white" for="BMI" class="form-label"
-                    >BMI</label
-                  >
-                </td>
-              </div>
-              <div class="col-sm-6">
-                <td>
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="bmi"
-                    placeholder="Enter BMI"
-                    required
-                  />
-                </td>
-              </div>
-            </tr>
-          </div>
-          <tr>
-            <td colspan="2" align="center">
-              <input
-                class="btn btn-success"
-                type="submit"
-                value="Predict Health"
-              />
-              <input class="btn btn-info" type="reset" value="Clear" />
-            </td>
-          </tr>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gen" required>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input
+            class="form-control"
+            type="number"
+            id="weight"
+            name="weight"
+            placeholder="Enter Weight in KG"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="height">Height</label>
+          <input
+            class="form-control"
+            type="text"
+            id="height"
+            name="height"
+            placeholder="Enter Height"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="bmi">BMI</label>
+          <input
+            class="form-control"
+            type="text"
+            id="bmi"
+            name="bmi"
+            placeholder="Enter BMI"
+            required
+          />
+        </div>
+        <div>
+          <input
+            class="btn btn-success"
+            type="submit"
+            value="Predict Health"
+          />
+          <input class="btn btn-info" type="reset" value="Clear" />
+        </div>
       </form>
     </div>
- </table>
-    <div><h1>Your Health Category is:</h1></div>
-    <div align="center"><h1>{{data}}</h1></div>
+    <h1 class="result">Your Health Category is: {{data}}</h1>
   </body>
 </html>
