@@ -1,5 +1,5 @@
 <html>
-  <title>Health Prediction</title>
+  <title>Health Category Prediction</title>
   <head>
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,9 +67,9 @@
     </style>
   </head>
   <body>
-    <div><h1>
+    <div><h2>
       Health Category Prediction
-      </h1></div>
+      </h2></div>
     <div class="container">
     <form action="/bmi" method="POST">
       <table class="table table-striped trans" align="center">
@@ -139,21 +139,6 @@
     </form>
 
     <div>Your Health Category is:</div>
-    <div align="center">{{data}}</div>
-    <center>
-      {% if data=="Obesity" %}
-      <h1>Obesity</h1>
-      {% elif data=="Normal" %}
-      <h1>Normal</h1>
-      {% elif data=="Overweight" %}
-      <h1>Overweight</h1>
-      {% elif data=="Extreme Obesity" %}
-      <h1>Extreme Obesity</h1>
-      {% elif data=="Weak" %}
-      <h1>Weak</h1>
-      {% elif data=="Extreme Weak" %}
-      <h1>Extreme Weak</h1>
-      {% endif %}
-    </center>
+    <div align="center"><h1>{{data}}</h1></div>
   </body>
 </html>
