@@ -1,9 +1,23 @@
 <html>
-  <title>Prediction</title>
+  <title>Health Prediction</title>
   <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
     <style>
       body {
-        background-color: floralwhite;
+        background-image: url("https://cdn.glitch.global/e8f7ca91-dfdb-4e3c-9450-e2b3926c82f2/gif.gif?v=1689247430313");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
       }
 
       div {
@@ -35,21 +49,35 @@
         color: #cd5c5c;
         text-align: center;
       }
-      
+      .container {
+      position: absolute; /* Use absolute positioning */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the container */
+      z-index: 1; /* Ensure the container is positioned above the video */
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.4); /* Darker background color */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
       
     </style>
   </head>
   <body>
+    <div class="container">
     <form action="/bmi" method="POST">
       <table class="table table-striped trans" align="center">
         <div class="row">
           <tr align="center">
             <div class="col-sm-6">
-              <td><label for="swidth" class="form-label">Gender</label></td>
+              <td><label style="color: white" for="GENDER" class="form-label">Gender</label></td>
             </div>
             <div class="col-sm-6">
               <td>
-                <select type="text" name="gen" required>
+                <select class="form-control" type="text" name="gen" required>
                   <option value="0">Male</option>
                   <option value="1">Female</option>
                 </select>
@@ -58,11 +86,11 @@
           </tr>
           <tr align="center">
             <div class="col-sm-6">
-              <td><label for="sheight" class="form-label">WEIGHT</label></td>
+              <td><label style="color: white" for="WEIGHT" class="form-label">WEIGHT</label></td>
             </div>
             <div class="col-sm-6">
               <td>
-                <input
+                <input class="form-control"
                   type="text"
                   name="weight"
                   placeholder="Enter WEIGHT"
@@ -73,11 +101,11 @@
           </tr>
           <tr align="center">
             <div class="col-sm-6">
-              <td><label for="pwidth" class="form-label">HEIGHT</label></td>
+              <td><label style="color: white" for="HEIGHT" class="form-label">HEIGHT</label></td>
             </div>
             <div class="col-sm-6">
               <td>
-                <input
+                <input class="form-control"
                   type="text"
                   name="height"
                   placeholder="HEIGHT"
@@ -88,15 +116,15 @@
           </tr>
           <tr align="center">
             <div class="col-sm-6">
-              <td><label for="pheight" class="form-label">BMI</label></td>
+              <td><label style="color: white" for="BMI" class="form-label">BMI</label></td>
             </div>
             <div class="col-sm-6">
               <td>
-                <input type="text" name="bmi" placeholder="BMI" required />
+                <input class="form-control" type="text" name="bmi" placeholder="BMI" required />
               </td>
             </div>
           </tr>
-
+</div>
           <tr>
             <td colspan="2" align="center">
               <input type="submit" value="Predict Health" />
@@ -107,7 +135,7 @@
       </table>
     </form>
 
-    <div>Your Category is:</div>
+    <div>Your Health Category is:</div>
     <div align="center">{{data}}</div>
     <center>
       {% if data=="Obesity" %}
@@ -120,6 +148,8 @@
       <h1>Extreme Obesity</h1>
       {% elif data=="Weak" %}
       <h1>Weak</h1>
+      {% elif data=="Extreme Weak" %}
+      <h1>Extreme Weak</h1>
       {% endif %}
     </center>
   </body>
