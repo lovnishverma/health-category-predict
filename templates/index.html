@@ -67,6 +67,9 @@
     </style>
   </head>
   <body>
+    <div><h1>
+      Health Category Prediction
+      </h1></div>
     <div class="container">
     <form action="/bmi" method="POST">
       <table class="table table-striped trans" align="center">
@@ -91,7 +94,7 @@
             <div class="col-sm-6">
               <td>
                 <input class="form-control"
-                  type="text"
+                  type="number"
                   name="weight"
                   placeholder="Enter WEIGHT"
                   required
@@ -108,7 +111,7 @@
                 <input class="form-control"
                   type="text"
                   name="height"
-                  placeholder="HEIGHT"
+                  placeholder="Enter HEIGHT"
                   required
                 />
               </td>
@@ -120,15 +123,15 @@
             </div>
             <div class="col-sm-6">
               <td>
-                <input class="form-control" type="text" name="bmi" placeholder="BMI" required />
+                <input class="form-control" type="text" name="bmi" placeholder="Enter BMI" required />
               </td>
             </div>
           </tr>
 </div>
           <tr>
             <td colspan="2" align="center">
-              <input type="submit" value="Predict Health" />
-              <input type="reset" value="Clear" />
+              <input class="btn btn-success" type="submit" value="Predict Health" />
+              <input class="btn btn-info" type="reset" value="Clear" />
             </td>
           </tr>
         </div>
