@@ -17,9 +17,9 @@ def page():
   height=eval(request.form.get("height"))
   bmi=eval(request.form.get("bmi"))
   
-  url="BMI_Data.csv"
+  url="https://raw.githubusercontent.com/anitabudhiraja/MachineLearning/main/BMI_Data1.csv"
   
-  data=pd.read_csv(url, header=None)
+  data=pd.read_csv(url)
   health=data.values
   
   #Split
