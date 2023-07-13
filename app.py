@@ -10,14 +10,14 @@ app=Flask(__name__)
 def iris():
   return render_template("index.html")
 
-@app.route('/irisf', methods=["POST"])
+@app.route('/bmi', methods=["POST"])
 def page():
   gen=eval(request.form.get("gen"))
   weight=eval(request.form.get("weight"))
   height=eval(request.form.get("height"))
   bmi=eval(request.form.get("bmi"))
   
-  url="https://raw.githubusercontent.com/anitabudhiraja/MachineLearning/main/BMI_Data1.csv"
+  url="BMI_Data.csv"
   
   data=pd.read_csv(url)
   health=data.values

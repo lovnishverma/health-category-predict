@@ -1,125 +1,126 @@
 <html>
-  <title> Prediction</title>
+  <title>Prediction</title>
   <head>
     <style>
-  body{
-    
-    background-color:floralwhite
-  }
-  
- div{
-    color : #cd5c5c;
-    text-align: center;
-    font-style: oblique;
-    font-weight: bold;
-    box-shadow: 10px 10px 5px #808080;
-    animation: bounce 2s infinite;
-  }
-@keyframes bounce {
-0% {
-transform: translateY(0);
-}
-25% {
-transform: translateY(-20px);
-}
-50% {
-transform: translateY(0);
-}
-75% {
-transform: translateY(20px);
-}
-100% {
-transform: translateY(0);
-}
-}  h2{
-    color: #cd5c5c;
-    text-align: center;
-  }
-  </style>
+      body {
+        background-color: floralwhite;
+      }
+
+      div {
+        color: #cd5c5c;
+        text-align: center;
+        font-style: oblique;
+        font-weight: bold;
+        box-shadow: 10px 10px 5px #808080;
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-20px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        75% {
+          transform: translateY(20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      h2 {
+        color: #cd5c5c;
+        text-align: center;
+      }
+      
+      
+    </style>
   </head>
-<body>
+  <body>
+    <form action="/bmi" method="POST">
+      <table class="table table-striped trans" align="center">
+        <div class="row">
+          <tr align="center">
+            <div class="col-sm-6">
+              <td><label for="swidth" class="form-label">Gender</label></td>
+            </div>
+            <div class="col-sm-6">
+              <td>
+                <select type="text" name="gen" required>
+                  <option value="0">Male</option>
+                  <option value="1">Female</option>
+                </select>
+              </td>
+            </div>
+          </tr>
+          <tr align="center">
+            <div class="col-sm-6">
+              <td><label for="sheight" class="form-label">WEIGHT</label></td>
+            </div>
+            <div class="col-sm-6">
+              <td>
+                <input
+                  type="text"
+                  name="weight"
+                  placeholder="Enter WEIGHT"
+                  required
+                />
+              </td>
+            </div>
+          </tr>
+          <tr align="center">
+            <div class="col-sm-6">
+              <td><label for="pwidth" class="form-label">HEIGHT</label></td>
+            </div>
+            <div class="col-sm-6">
+              <td>
+                <input
+                  type="text"
+                  name="height"
+                  placeholder="HEIGHT"
+                  required
+                />
+              </td>
+            </div>
+          </tr>
+          <tr align="center">
+            <div class="col-sm-6">
+              <td><label for="pheight" class="form-label">BMI</label></td>
+            </div>
+            <div class="col-sm-6">
+              <td>
+                <input type="text" name="bmi" placeholder="BMI" required />
+              </td>
+            </div>
+          </tr>
 
-<form action="/irisf" method="POST">
-  <table class="table table-striped trans" align="center">
-    
-    <div class="row">
-    <tr align="center">
-       <div class="col-sm-6">
-         <td><label for="swidth" class="form-label">Gender</label></td></div>
-        <div class="col-sm-6">
-          <td><select type="text" name="gen"  required><option value= "0">Male</option>
-            <option value= "1">Female</option>
-            </select>
-          </td></div>
-    </tr>
-    <tr align="center">
-        <div class="col-sm-6">
-          <td><label for="sheight" class="form-label">WEIGHT</label></td></div>
-        <div class="col-sm-6">
-          <td><input type="text" name="weight" placeholder="Enter WEIGHTl" required></td></div>
-    </tr>
-    <tr align="center">
-        <div class="col-sm-6">
-          <td><label for="pwidth" class="form-label">HEIGHT</label></td></div>
-        <div class="col-sm-6">
-          <td><input type="text" name="height" placeholder="HEIGHT" required></td></div>
-    </tr>
-    <tr align="center">
-        <div class="col-sm-6">
-          <td><label for="pheight" class="form-label">BMI</label></td></div>
-        <div class="col-sm-6">
-          <td><input type="number" name="bmi" placeholder="BMI" required></td></div>
-    </tr>
-    
-    <tr>
-    <td colspan="2" align="center">
-      <input type="submit" value="Predict Flower Type">
-      <input type="reset" value="Clear">
-    </td>
-    </tr>
-    </div>
-  </table>
-  
-</form>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="submit" value="Predict Health" />
+              <input type="reset" value="Clear" />
+            </td>
+          </tr>
+        </div>
+      </table>
+    </form>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-     <div> The Flower Name is: </div>
-     <div align="center"> {{data}} </div>
-     <center>
-     {% if data=="Obesity" %}
-        <h1>
-          Obesity
-       </h1>
-     {% elif data=="Normal" %}
-        <h1>
-          Normal
-       </h1>
-     {% elif data=="Overweight" %}
-       <h1>
-         Overweight
-       </h1>
-        </h1>
-     {% elif data=="Extreme Obesity" %}
-       <h1>
-         Extreme Obesity
-       </h1>
-  {% elif data=="Weak" %}
-       <h1>
-         Weak
-       </h1>
-     {% endif %}
-     </center>
-
-</body>
+    <div>Your Category is:</div>
+    <div align="center">{{data}}</div>
+    <center>
+      {% if data=="Obesity" %}
+      <h1>Obesity</h1>
+      {% elif data=="Normal" %}
+      <h1>Normal</h1>
+      {% elif data=="Overweight" %}
+      <h1>Overweight</h1>
+      {% elif data=="Extreme Obesity" %}
+      <h1>Extreme Obesity</h1>
+      {% elif data=="Weak" %}
+      <h1>Weak</h1>
+      {% endif %}
+    </center>
+  </body>
 </html>
